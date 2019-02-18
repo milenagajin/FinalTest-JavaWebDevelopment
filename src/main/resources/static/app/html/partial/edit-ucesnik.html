@@ -1,0 +1,25 @@
+<div ng-controller="editUcesnikCtrl">
+<form>
+            <div class="form-group">
+                <label for="nazivNU">Naziv</label>
+                <input type="text" class="form-control" name="nazivNU" ng-model="stariUcesnik.naziv">
+            </div>
+            <div class="form-group">
+                <label for="mestoNU">Mesto</label>
+                <input type="text" class="form-control" name="mestoNU" ng-model="stariUcesnik.mesto">
+            </div>
+            <div class="form-group">
+                <label for="kontaktE">Kontakt</label>
+                <input type="text" class="form-control" name="kontaktE" ng-model="stariUcesnik.kontakt">
+            </div>
+              <div class="form-group">
+                <label for="brojsus">Broj susreta</label>
+                <input type="text" class="form-control" name="brojsus" ng-model="stariUcesnik.brojSusreta">
+            </div>
+              <div class="form-group">
+                <label for="brojbod">Broj bodova</label>
+                <input type="text" class="form-control" name="brojbod" ng-model="stariUcesnik.brojBodova">
+            </div>
+            <button type="button" class="btn btn-primary" ng-click="edit()">Izmeni</button>
+        </form>
+</div>

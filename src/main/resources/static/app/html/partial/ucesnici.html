@@ -1,0 +1,76 @@
+<div ng-controller="ucesniciCtrl">
+
+        <form>
+            <div class="form-group">
+                <label for="nazivNU">Naziv</label>
+                <input type="text" class="form-control" name="nazivNU" ng-model="noviUcesnik.naziv">
+            </div>
+            <div class="form-group">
+                <label for="mestoNU">Mesto</label>
+                <input type="text" class="form-control" name="mestoNU" ng-model="noviUcesnik.mesto">
+            </div>
+            <div class="form-group">
+                <label for="datumPocetkaNF">Kontakt</label>
+                <input type="text" class="form-control" name="datumPocetkaNF" ng-model="noviUcesnik.kontakt">
+            </div>
+            <div class="form-group">
+                <label for="takmicenjeNU">Takmicenje</label>
+                <select class="form-control" name="takmicenjeNU" ng-model="noviUcesnik.takmicenjeId">
+                    <option ng-repeat="t in takmicenja" value="{{t.id}}">{{t.naziv}}</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-primary" ng-click="dodaj()">Dodaj</button>
+        </form>
+
+    <br/>
+    <br/>
+
+        <form>
+            <div class="form-group">
+                <label for="takmicenjeF">Takmicenje</label>
+                <select class="form-control" name="takmicenjeF" ng-model="trazeniUcesnik.takmicenjeId">
+                    <option ng-repeat="t in takmicenja" value="{{t.id}}">{{t.naziv}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nazivF">Naziv</label>
+                <input type="text" class="form-control" name="nazivTF" ng-model="trazeniUcesnik.naziv">
+            </div>
+            <button type="button" class="btn btn-primary" ng-click="trazi()">Filtriraj</button>
+        </form>
+
+	<button type="button" class="btn btn-primary" ng-click="goToMec()">Idi na mec</button>
+    <br/>
+    <br/>
+    <br/>
+    <div class="btn-group pull-right">
+        <button class="btn btn-primary" ng-click="nazad()" ng-disabled="pageNum === 0">Prethodna</button>
+        <button class="btn btn-primary" ng-click="napred()" ng-disabled="pageNum === totalPages - 1">Sledeca</button>
+    </div>
+    
+    
+    <table class="table table-striped">
+        <tr>
+            <th>Naziv</th>
+            <th>Mesto</th>
+            <th>Kontakt</th>
+            <th>Takmicenje</th>
+            <th>Odigranih susreta</th>
+            <th>Bodovi</th>
+            <th>&nbsp</th>
+        </tr>
+        <tr ng-repeat="u in ucesnici">
+            <td>{{u.naziv}}</td>
+            <td>{{u.mesto}}</td>
+            <td>{{u.kontakt}}</td>
+            <td>{{u.takmicenjeNaziv}}</td>
+            <td>{{u.brojSusreta}}</td>
+            <td>{{u.brojBodova}}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="obrisi(u.id)">Obrisi</button>
+                <button class="btn btn-warning" ng-click="goToEdit(u.id)">Izmeni</button>
+            </td>
+        </tr>
+    </table>
+</div>
